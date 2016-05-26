@@ -20,7 +20,7 @@
     "BROKER_CPUS": "{{brokers.cpus}}",
     "BROKER_MEM": "{{brokers.mem}}",
     "BROKER_DISK": "{{brokers.disk}}",
-    "KAFKA_VER_NAME": "kafka_confluent-2.0.1",
+    "KAFKA_VER_NAME": "kafka_confluent-3.0.0",
     "KAFKA_URI": "{{resource.assets.uris.kafka_tgz}}",
     "OVERRIDER_URI": "{{resource.assets.uris.overrider-zip}}",
     "JAVA_URI": "{{resource.assets.uris.jre-tar-gz}}",
@@ -117,7 +117,7 @@
   "healthChecks": [
     {
       "protocol": "COMMAND",
-      "command": { "value": "export PATH=$PATH:$MESOS_SANDBOX/jre/bin && ./kafka_confluent-2.0.1/bin/kafka-topics.sh --zookeeper master.mesos:2181/{{service.name}} --describe --under-replicated-partitions | wc -l | { read count; echo Under replicated partition count = $count; exit $count; }" },
+      "command": { "value": "export PATH=$PATH:$MESOS_SANDBOX/jre/bin && ./kafka_confluent-3.0.0/bin/kafka-topics.sh --zookeeper master.mesos:2181/{{service.name}} --describe --under-replicated-partitions | wc -l | { read count; echo Under replicated partition count = $count; exit $count; }" },
       "gracePeriodSeconds": 300,
       "intervalSeconds": 60,
       "timeoutSeconds": 60,
